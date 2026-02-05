@@ -1,0 +1,9 @@
+.github/
+bin/
+obj/
+Deployment/
+.dockerignore
+Dockerfile
+.env*
+LICENSE
+README.md

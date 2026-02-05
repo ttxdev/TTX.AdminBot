@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ttx-adminbot
+  namespace: ttx
+spec:
+  selector:
+    matchLabels:
+      app: ttx-adminbot
+  template:
+    metadata:
+      labels:
+        app: ttx-adminbot
+    spec:
+      imagePullSecrets:
+        - name: ttx-regcreds
+      containers:
+        - name: bot
+          image: ghcr.io/ttxdev/ttx.adminbot:main
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: ttx-adminbot-config
